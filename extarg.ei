@@ -1,0 +1,15 @@
+str func ext helloExt {
+	grm {
+		main(expr(str)): "hello, " [a-zA-Z0-9]+
+	}
+
+	run {
+		return main;
+	}
+}
+
+void func specialFunc(helloExt exten) {
+	println(exten);
+}
+
+specialFunc(hello, WORLD!);

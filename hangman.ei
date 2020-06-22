@@ -1,0 +1,54 @@
+
+define chr = ( MaxLength(1) {println("INPUT TOO LONG!");} ) str 
+
+class UnknownString(str) {
+
+	struct UnknownChar {
+		chr char;
+		bool isRevealed;
+	}
+
+	UnknownChar[] chars;
+
+	from(str) void func fromString (str in) {
+		for(str ch:in, num i)
+			chars[i] = UnknownChar(ch, false);
+	}
+
+	bool func reveal(chr toReveal) {
+		for(UnknownChar ch:chars) {
+			if(ch.char == toReveal)
+				ch.isRevealed = true;
+		}
+	}
+
+	from(str) str func toString() {
+		str toReturn;
+
+		for(UnknownChar ch:chars, num i) {
+			if(ch.isRevealed)
+				toReturn += ch.char;
+			else
+				toReturn += "_";
+		}
+		return toReturn;
+	}
+}
+
+while(true) {
+	UnknownString string = rand("hello", "welcome", "word");
+	num guesses = 0;
+	if(string.reveal(input())
+		println(string);
+	else {
+		println("WRONG!");
+		guesses ++;
+	}
+
+	if(guesses >= 10) {
+		exit("YOU LOST!");
+	}
+}
+
+
+

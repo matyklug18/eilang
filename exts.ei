@@ -1,0 +1,13 @@
+
+ext helloWorldDef {
+	grm {
+		main: "hello, " [a-zA-Z0-9] ";";
+	}
+
+	run {
+		println(main);
+	}
+}
+
+
+hello, world!;

@@ -1,0 +1,26 @@
+
+annot InConstructor {
+	field(f) {
+		hacks:c.args += hacks:getSign(f);
+		hacks:c.code += hacks:makeExpr (
+			f = args[getSign(f)];
+		);
+	}
+}
+
+class Something {
+	
+	@InConstructor
+	num aNumber;
+
+	@InConstructor
+	str aString;
+	
+	func() {
+		println(aNumber, aString);
+	}
+
+}
+
+Something = Something(100, "Hello");
+

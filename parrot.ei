@@ -1,0 +1,9 @@
+void func repeat(str toRepeat) {
+	println(toRepeat);
+}
+
+while(true) {
+	str inp = input();
+	repeat(inp);
+}
+
