@@ -1,6 +1,8 @@
-str func ext helloExt {
+
+str ext helloExt {
+
 	grm {
-		main(expr(str)): "hello, " [a-zA-Z0-9]+
+		main(fcall(str)): "hello, " [a-zA-Z0-9]+;
 	}
 
 	run {

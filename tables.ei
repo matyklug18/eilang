@@ -1,0 +1,11 @@
+
+tbl aTable = {
+	a: 100;
+	b: "hello"
+};
+
+aTable["a"] += 100;
+
+aTable["c"] = {
+	d: "hello"
+}

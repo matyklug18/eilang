@@ -1,0 +1,82 @@
+
+import algos.voxles.meshing.culledmeshing.CullledMesher;
+import algos.voxels.worldgen.generators.SimpleGenerator;
+
+import game3d.rendering.Renderer;
+import game3d.main.game.MainGame;
+import game3d.cameras.FPSCamera;
+import game3d.chat.Chat;
+import game3d.chat.Message;
+
+import data.3d.vertex.Vertex;
+import data.3d.mesh.Mesh;
+import data.voxels.voxel.Voxel;
+import data.voxels.chunk.Chunk;
+import data.voxels.world.World;
+import data.voxels.blocks.DefaultBlocks;
+import data.game.items.GameItem;
+import data.game.player.Player
+
+import annots.regs.voxles.BlockReg;
+
+import ui.gameui.simpleui.GUIProcessing;
+import ui.nodes.Node;
+
+import voxels.player.VoxelPlayer;
+
+apply(in=Player, mod=VoxelPlayer);
+
+class VoxelGame : MainGame {
+	Mesh mesh;
+	pub stat World world;
+	Renderer renderer;
+
+	overwrite void func init() {
+		world.init(vec3(512), vec3(16), DefaultBlocks);
+		world.gen(SimpleGenerator(
+			
+			stone 0 500
+			dirt 501 511
+			grass 512
+			air 513..
+
+		)); 
+		mesh = world.mesh(CullledMesher());
+		renderer = Renderer();
+	}
+
+	overwrite void func update(num delta) {
+		renderer.setCamera(FPSCamera());
+	}
+
+	overwrite void func render() {
+		renderer.render(mesh);
+	}
+}
+
+VoxelGame.start();
+
+event(ChatMessage) func onChat(Player sender, Message message) {
+	message -> replaceAll(VoxelGane.world.players, name -> Player(name).face)
+}
+
+@BlockReg(regid = "furnace")
+class Furnace : Block (gui, processing) {
+	from(gui) GUI func getGUI() {
+		return GUIProcessing(
+			
+			INPUT(in) -10 0
+			PROCESSARROW(process) 0 0 flame
+			OUTPUT(out) 10 0
+
+		);
+	}
+	
+	from(processing) void func doStart() {
+		return slots["in"].isEmpty();
+	}
+
+	from(processing) void func process() {
+		slots["out"] += slots["in"].smelt();
+	}
+}

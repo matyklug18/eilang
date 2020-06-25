@@ -1,0 +1,6 @@
+num someArr = [0..100];
+rand(someArr);
+
+someArr += 101; //add 101 to the array
+
+

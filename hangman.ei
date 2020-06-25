@@ -1,7 +1,7 @@
 
 define chr = ( MaxLength(1) {println("INPUT TOO LONG!");} ) str 
 
-class UnknownString(str) {
+class UnknownString : str {
 
 	struct UnknownChar {
 		chr char;

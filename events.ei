@@ -1,0 +1,10 @@
+
+evnt class MyEvent {
+	
+}
+
+evnt(MyEvent) func onMyEvent() {
+	
+}
+
+callevnt(MyEvent);
