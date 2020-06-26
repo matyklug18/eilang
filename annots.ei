@@ -1,8 +1,8 @@
 
 annot InConstructor {
 	field(f) {
-		hacks:c.args += hacks:getSign(f);
-		hacks:c.code += hacks:makeExpr (
+		annot:c.args += hacks:getSign(f);
+		annot:c.code += hacks:makeExpr (
 			f = args[getSign(f)];
 		);
 	}

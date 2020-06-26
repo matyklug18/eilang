@@ -2,10 +2,10 @@
 str ext helloExt {
 
 	grm {
-		main(fcall(str)): "hello, " [a-zA-Z0-9]+;
+		main(fcallarg): "hello, " [a-zA-Z0-9]+;
 	}
 
-	run {
+	str run {
 		return main;
 	}
 }
@@ -15,3 +15,5 @@ void func specialFunc(helloExt exten) {
 }
 
 specialFunc(hello, WORLD!);
+
+

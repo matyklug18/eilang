@@ -27,9 +27,10 @@ import voxels.player.VoxelPlayer;
 apply(in=Player, mod=VoxelPlayer);
 
 class VoxelGame : MainGame {
-	Mesh mesh;
-	pub stat World world;
-	Renderer renderer;
+
+	    Mesh       this.mesh;
+	pub World     class.world;
+	    Renderer   this.renderer;
 
 	overwrite void func init() {
 		world.init(vec3(512), vec3(16), DefaultBlocks);
@@ -61,7 +62,7 @@ event(ChatMessage) func onChat(Player sender, Message message) {
 }
 
 @BlockReg(regid = "furnace")
-class Furnace : Block (gui, processing) {
+class Furnace(Block) : gui, processing {
 	from(gui) GUI func getGUI() {
 		return GUIProcessing(
 			
