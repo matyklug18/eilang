@@ -28,9 +28,9 @@ apply(in=Player, mod=VoxelPlayer);
 
 class VoxelGame : MainGame {
 
-	    Mesh       this.mesh;
-	pub World     class.world;
-	    Renderer   this.renderer;
+	Mesh mesh;
+	public static World world;
+	Renderer renderer;
 
 	overwrite void func init() {
 		world.init(vec3(512), vec3(16), DefaultBlocks);

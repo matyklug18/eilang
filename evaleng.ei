@@ -1,0 +1,11 @@
+
+engine ext helloLang {
+	grm {
+		main: "hello"	world "!";
+		world: [a-z]+;
+	}
+
+	run {
+		println(get(main));
+	}
+}

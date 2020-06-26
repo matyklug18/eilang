@@ -1,0 +1,11 @@
+
+native lang(CPP) {
+	#include <iostream>
+}
+
+native func main() {
+	lang(CPP) {
+		std::cout << "hello from C++!" << std::endl;
+	}
+}
+
