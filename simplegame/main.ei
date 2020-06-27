@@ -73,7 +73,7 @@ class Furnace(Block) : gui, processing {
 		);
 	}
 	
-	from(processing) void func doStart() {
+	from(processing) bool func doStart() {
 		return slots["in"].isEmpty();
 	}
 

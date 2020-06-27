@@ -1,0 +1,5 @@
+lang(LUA) {
+	a = {}
+	a["b"] = "hello"
+	print(a["b"])
+}

@@ -1,10 +1,10 @@
 
 ext helloWorldDef {
-	grm {
+	grammar {
 		main: "hello, " [a-zA-Z0-9] ";";
 	}
 
-	run {
+	runner {
 		println(main);
 	}
 }
